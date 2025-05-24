@@ -1,0 +1,158 @@
+.payment-container {
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 32px 24px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.payment-container h2 {
+  text-align: center;
+  color: #0058d2;
+  margin-bottom: 24px;
+}
+
+.payment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.payment-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.payment-methods label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.05rem;
+  cursor: pointer;
+}
+
+.method-icon {
+  font-size: 1.5rem;
+  color: #0058d2;
+}
+
+.card-details label {
+  margin-top: 10px;
+  font-weight: 500;
+  color: #333;
+}
+
+.card-details input {
+  width: 100%;
+  padding: 8px 10px;
+  margin-top: 4px;
+  border: 1px solid #bfc9d1;
+  border-radius: 6px;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.card-details input:focus {
+  border-color: #0058d2;
+}
+
+.card-row {
+  display: flex;
+  gap: 12px;
+}
+
+.card-row>div {
+  flex: 1;
+}
+
+.pay-btn {
+  background: #0058d2;
+  color: #fff;
+  border: none;
+  padding: 12px 0;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 10px;
+}
+
+.pay-btn:hover {
+  background: #003e99;
+}
+
+
+.redAlert {
+  text-align: center;
+  min-width: 240px;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%);
+  top: -200%;
+  transition: .50s;
+  z-index: 999;
+}
+
+.greenAlert {
+  text-align: center;
+  min-width: 240px;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%);
+  top: -200%;
+  transition: 1s;
+  z-index: 999;
+}
+
+
+.paypal{
+  padding: 20px;
+  border: none;
+  font-size: 16px;
+  border-radius: 20px;
+  border: solid 1px;
+}
+
+
+.paypal-details input {
+   width: 100%;
+  padding: 8px 10px;
+  margin-top: 4px;
+  border: 1px solid #bfc9d1;
+  border-radius: 6px;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.paypal-details input:focus {
+  border-color: #0058d2;
+}
+
+.paypal-details {
+  display: flex;
+ 
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 500px) {
+  .section {
+    padding: 8px;
+  }
+}

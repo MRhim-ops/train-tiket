@@ -1,0 +1,181 @@
+<div class="redAlert">
+    <div class="alert alert-danger">
+        <strong>შეცდომა!</strong> გთხოვთ შეავსოთ ყველა ველი {{i}} ბილეთისთვის
+    </div>
+</div>
+
+<div class="redAlert2">
+    <div class="alert alert-danger">
+        <strong>შეცდომა!</strong> ყველა ველი უნდა იყოს შევსებული
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="all-in">
+    <div class="all-content">
+        <div class="people-container" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+            <div class="person-div">
+                <p><i class="ri-train-line"></i> {{selectedTrain.number}}</p>
+                <p>{{selectedTrain.name}} Express</p>
+                <p>გამგზავრება: {{selectedTrain.departure}} - {{selectedTrain.arrive}}</p>
+                <p>დღე: {{selectedTrain.date}} </p>
+            </div>
+        </div>
+
+        <div>
+            <div class="tickets" data-aos="zoom-in-up">
+                <div *ngFor="let ticket of forCardsTickets; let index = index" class="passenger-info">
+                    <h2>ბილეთი {{ index + 1 }}</h2>
+                    <div class="info-row">
+                        <div>
+                            <label>სახელი</label>
+                            <input class="name" [(ngModel)]="names[index]" type="text" placeholder="სახელი">
+                        </div>
+
+                        <div>
+                            <label>გვარი</label>
+                            <input class="surname" [(ngModel)]="surnames[index]" type="text" placeholder="გვარი">
+                        </div>
+
+                        <div>
+                            <label class="private">პირადი ნომერი</label>
+                            <input inputmode="numeric" class="number" [(ngModel)]="privateNumbers[index]" type="text"
+                                placeholder="პირადი ნომერი">
+                        </div>
+
+                        <div class="sit">
+                            <label class="place">ადგილის არჩევა</label>
+                            <button (click)="fetchVagons(selectedTrain.id, index, selectedTrain.vagons[0])"
+                                class="place1">
+                                ადგილი: {{ seatnumbre[index] }}
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="bag-details">
+                <h2 data-aos="zoom-out">ბარგის არჩევა</h2>
+                <div class="bag-info" data-aos="zoom-in">
+                    <div class="bag-item" id="one" (click)="include()">
+                        <i class="ri-briefcase-line"></i>
+                        <p id="include">პერსონალური ბარგი: არ შედის</p>
+                    </div>
+                    <div class="bag-item" id="one1" (click)="includea()">
+                        <i class="ri-handbag-line"></i>
+                        <p id="include1">ხელბარგის ჩანთა: არ შედის</p>
+                    </div>
+                    <div class="bag-item" id="one3" (click)="includew()">
+                        <i class="ri-suitcase-line"></i>
+                        <p id="include2">ჩაბარებული ბარგი: არ შედის</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+
+         <div class="user-contact-section" data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="500"
+            data-aos-duration="500">
+            <h2>კონტაქტის ინფორმაცია</h2>
+            <div class="contact-fields">
+                <div>
+                    <label for="userEmail">იმეილი</label>
+                    <input id="userEmail" type="email" [(ngModel)]="userEmail" placeholder="მაგ: example@email.com" />
+                </div>
+                <div>
+                    <label for="userPhone">ტელეფონი</label>
+                    <input id="userPhone" type="tel" [(ngModel)]="userPhone" placeholder="მაგ: 555123456" />
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar" data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="500"
+            data-aos-duration="500">
+            <h3>ინფორმაცია</h3>
+
+            <div *ngFor="let ticket of forCardsTickets; let i = index">
+                <p *ngIf="seatnumbre[i] && ticketPrices[i]">
+                    ადგილი: {{ seatnumbre[i] }} | ფასი: {{ ticketPrices[i] }}₾
+                </p>
+            </div>
+
+            <p>ჯამი: {{ sumtotal }}₾</p>
+
+
+            <label>
+                <input type="checkbox"> ვეთანხმები და ვადასტურებ წესებს
+            </label>
+
+            <div>
+                <button class="buy" (click)="ProcessToByTickets()">ბილეთის შეძენა</button>
+
+            </div>
+        </div>
+       
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="bg" *ngIf="isclickedadd" >
+    <div class="tran" >
+        <div class="train-container" id="container" #popupContainer>
+            <div class="close-div">
+                <p class="close" (click)="closeModal()">X</p>
+            </div>
+            <div class="train-container">
+                <div class="train-images">
+                    <!-- Loop through vagons array -->
+                    <div *ngFor="let vagon of vagons; let i = index" class="train-wagon-container"
+                        [ngClass]="'wagon-' + i">
+                        <div class="train-wagon-wrapper">
+                            <div class="background"></div>
+                            <img class="vagonImg" (click)="vagonimg(vagon.seats, vagon.name, i)"
+                                [src]="getWagonImage(vagon.name)" class="train-wagon" alt="Train Wagon" />
+                            <p class="wagon-name">{{ vagon.name }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h2 *ngIf="ischosed">ვაგონის ნომერი: 1</h2>
+            <h2 *ngIf="ischosed">ვაგონი: {{ class }}</h2>
+            <h2 *ngIf="!ischosed">აირჩიეთ ვაგონი</h2>
+            <div class="seat-layout" *ngIf="isclickedwagons">
+                <table>
+                    <tr *ngFor="let row of chunkArray(vagonsnumber, 4)">
+                        <td *ngFor="let seat of row; let ii = index">
+                            <button  (click)="tikets(clickedindex, seat.price, seat.number, seat.seatId)"
+                                (click)="isSeatTaken(seat.seatId)" [ngClass]="{
+        'btn': true,
+        'green': clickedindex !== undefined && selectedSeatIds[clickedindex] === seat.seatId,
+        'red': (selectedSeatIds.includes(seat.seatId) && selectedSeatIds[clickedindex] !== seat.seatId) || seat.seatId === takenSeatIds || isSeatTaken(seat.seatId)
+    }">
+                                {{ seat.name || seat.number }}
+                            </button>
+
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>

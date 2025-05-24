@@ -1,0 +1,69 @@
+<div class="redAlert">
+    <div class="alert alert-danger">
+        <strong>შეცდომა!</strong> ბარათის მონაცემები არასწორია
+    </div>
+</div>
+
+<div class="greenAlert">
+    <div class="alert alert-success">
+        <strong>წარმატებით!</strong> გადახდა წარმატებით განხორციელდა
+    </div>
+  </div>
+
+
+
+<section class="section">
+  <div class="payment-container">
+    <h2 data-aos="fade-down" data-aos-duration="600">გადახდის მეთოდი</h2>
+    <div class="payment-form">
+      <div class="payment-methods">
+        <label data-aos="fade-right" data-aos-duration="600">
+          <input data-aos="zoom-in" data-aos-duration="600" type="radio" name="payment" value="card" [(ngModel)]="paymentMethod">
+          <span data-aos="zoom-in" data-aos-duration="600" class="method-icon"><i class="ri-bank-card-line"></i></span>
+          ბარათით გადახდა
+        </label>
+        <label data-aos="fade-left" data-aos-duration="600">
+          <input data-aos="zoom-in" data-aos-duration="600" type="radio" name="payment" value="paypal" [(ngModel)]="paymentMethod">
+          <span data-aos="zoom-in" data-aos-duration="600" class="method-icon"><i class="ri-paypal-line"></i></span>
+          PayPal
+        </label>
+      </div>
+
+      <!-- Card Details -->
+
+      <div *ngFor="let sit of PayMentInformation" data-aos="zoom-in" data-aos-duration="600" class="sits&Prices">
+        <p> ადგილი: {{ sit.sit }} | ფასი: {{ sit.price }}₾</p>
+      </div>
+
+
+      <div class="card-details" data-aos="fade-left" data-aos-duration="600" *ngIf="paymentMethod === 'card'">
+        <label for="cardNumber" data-aos="zoom-out" data-aos-duration="600">ბარათის ნომერი</label>
+        <input data-aos="zoom-in" data-aos-duration="600" type="text" id="cardNumber" placeholder="0000 0000 0000 0000" maxlength="19" pattern="\d{4}/\d{4}" inputmode="numeric" (input)="CardNumber($event)" [value]="cardNum">
+        <div class="card-row">
+          <div data-aos="zoom-in" data-aos-duration="600">
+            <label data-aos="zoom-in" data-aos-duration="600" for="expDate">ვადა</label>
+            <input data-aos="zoom-in" data-aos-duration="600" type="text" id="expDate" placeholder="MM/YY" maxlength="5" pattern="\d{2}/\d{2}" inputmode="numeric"
+              (input)="formatExpDate($event)" [value]="expDate" />
+
+          </div>
+          <div data-aos="fade-left" data-aos-duration="600">
+            <label data-aos="fade-left" data-aos-duration="600"  for="cvv">CVV</label>
+            <input data-aos="fade-left" data-aos-duration="600" [(ngModel)]="cvv"  type="password" id="cvv" placeholder="CVV" maxlength="4">
+          </div>
+        </div>
+        <label data-aos="fade-left" data-aos-duration="600" for="cardName">ბარათის მფლობელი</label>
+        <input data-aos="fade-right" data-aos-duration="600"  [(ngModel)]="Name" placeholder="სახელი და გვარი" id="cardName" type="text" >
+      </div>
+
+      <div  class="paypal-details" *ngIf="paymentMethod === 'paypal'">
+        <label data-aos="fade-left" data-aos-duration="600" for="paypalEmail">PayPal Email</label>
+        <input [(ngModel)]="PaypalEmail" data-aos="fade-left" data-aos-duration="600" class="paypal" type="email" id="paypalEmail" placeholder="your@email.com">
+      </div>
+
+      <p data-aos="fade-left" data-aos-duration="600">ჯამური გადასახადი: {{sumtotal}}₾ </p>
+
+      <button data-aos="fade-right" data-aos-duration="600" (click)="pay()" type="submit" class="pay-btn">გადახდა</button>
+    
+    </div>
+  </div>
+</section>

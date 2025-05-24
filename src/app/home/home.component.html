@@ -1,0 +1,250 @@
+<div class="redAlert">
+    <div class="alert alert-danger">
+        <strong>შეცდომა!</strong> უნდა აირჩიოთ სხვა მიმართულება
+    </div>
+</div>
+
+<div class="redAlert2">
+    <div class="alert alert-danger">
+        <strong>შეცდომა!</strong> მატარებელი არ არის ხელმისაწვდომი არჩეული რეგიონების მიხედვით
+    </div>
+</div>
+
+<div class="redAlert3">
+    <div class="alert alert-danger">
+        <strong>შეცდომა!</strong> ყველა ველი უნდა იყოს შევსებული
+    </div>
+</div>
+
+<div class="greenAlert">
+    <div class="alert alert-success">
+        <strong>წარმატებით!</strong> თქვენი მოქმედება წარმატებით შესრულდა
+    </div>
+</div>
+
+
+<div  class="whole-content">
+
+    <div data-aos="fade-up" class="top-content" [ngStyle]="{'background-image': 'url(' + img + ')'}">
+        <div class="top-content-text">
+            <h1>შეიძინეთ მატარებლის ბილეთები მარტივად</h1>
+        </div>
+
+    </div>
+    <div  data-aos="fade-up" class="search">
+        <div class="s">
+            <div class="select">
+                <i class="ri-map-pin-3-line"></i>
+                <select [(ngModel)]="FromWhere" class="custom-select">
+                    <option value="" disabled selected hidden>{{where}}</option>
+                    <option value="{{stations.name}}" *ngFor="let stations of stations">{{stations.name}}</option>
+
+                </select>
+            </div>
+            <div class="select">
+                <i class="ri-map-pin-line"></i>
+                <select [(ngModel)]="ToWhere" class="custom-select">
+                    <option value="" disabled selected hidden>{{to}}</option>
+                    <option value="{{stations.name}}" *ngFor="let stations of stations">{{stations.name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="b">
+            <div class="select">
+                <input class="custom-select" [(ngModel)]="goingDate" [min]="today" type="date" />
+            </div>
+            <div class="select">
+                <i class="ri-user-3-line"></i>
+                <select [(ngModel)]="people" class="custom-select">
+                    <option value="" disabled selected hidden>{{PersonLength}}</option>
+                    <option value="1">1 მგზავრი</option>
+                    <option value="2">2 მგზავრი</option>
+                    <option value="3">3 მგზავრი</option>
+                    <option value="4">4 მგზავრი</option>
+                    <option value="5">5 მგზავრი</option>
+                    <option value="6">6 მგზავრი</option>
+                    <option value="7">7 მგზავრი</option>
+                    <option value="8">8 მგზავრი</option>
+                    <option value="9">9 მგზავრი</option>
+                    <option value="10">10 მგზავრი</option>
+                </select>
+            </div>
+        </div>
+        <div class="search-button">
+            <button (click)="sent()" class="custom-button">
+                <i class="ri-search-line"></i>
+            </button>
+        </div>
+    </div>
+
+
+
+    <div class="top-content-text-text">
+        <h1 data-aos="zoom-in-up">ბილეთის შეძენის ინსტრუქცია</h1>
+    </div>
+
+    <div class="all-information">
+
+
+        <div data-aos="zoom-in-up" class="information">
+            <div>
+                <i class="ri-user-follow-line"></i>
+            </div>
+            <div>
+                <p class="information-text"> ბილეთების შეძენისას აუცილებელია თითოეული მგზავრის საინდეტიფიკაციო
+                    მონაცემების მითითება (სახელი, გვარი,
+                    პირადი ნომერი).</p>
+
+            </div>
+        </div>
+
+        <div  data-aos="zoom-in-up" class="information">
+            <div>
+                <i class="ri-user-5-fill"></i>
+            </div>
+            <div>
+                <p class="information-text">5-10 წლამდე ბავშვებისთვის ბილეთის შეძენა სავალდებულოა, თუმცა მოქმედებეს
+                    ფასდაკლება</p>
+            </div>
+        </div>
+
+        <div  data-aos="zoom-in-up" class="information">
+            <div>
+                <i class="ri-ticket-line"></i>
+            </div>
+            <div>
+
+                <p class="information-text"> გადახდა შესაძლებელია VISA Mastercard, American Express პლასტიკური ბარათების
+                    საშულებით</p>
+            </div>
+        </div>
+
+        <div  data-aos="zoom-in-up" class="information">
+            <div>
+                <i class="ri-information-off-line"></i>
+            </div>
+            <div>
+
+                <p class="information-text">არასწორად მითითებული ინფორმაციის შემთხვევაში მგზავრი მატარებელში არ დაიშვება
+                </p>
+            </div>
+        </div>
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="down-content">
+        <h2 data-aos="zoom-in-left"  class="popular">პოპულარული მიმართულებები</h2>
+
+
+        <div  class="cards">
+            <div data-aos="zoom-in-right" data-aos-duration="1300" class="card1" [ngStyle]="{'background-image': 'url(' + img1 + ')'}">
+
+                <p class="texts">თბილისი - ბათუმი</p>
+            </div>
+
+
+            <div data-aos="zoom-in-up" data-aos-duration="1300" class="card2" [ngStyle]="{'background-image': 'url(' + img2 + ')'}">
+
+                <p class="texts">ბათუმი - თბილისი </p>
+            </div>
+
+
+            <div data-aos="zoom-in-left" data-aos-duration="1300" class="card3" [ngStyle]="{'background-image': 'url(' + img3 + ')'}">
+
+                <p class="texts">თბილისი - ფოთი</p>
+            </div>
+
+        </div>
+
+        <div>
+            <p class="questions" data-aos="zoom-in-down">ხშირად დასმული კითხვები</p>
+
+
+
+            <div class="accordion">
+                <div data-aos="zoom-in-down"   class="accordion-item">
+                    <button class="accordion-header" (click)="toggleAccordion(0)">
+                        რა დამჭირდება მატარებელში ჩასხდომისას?
+                        <i [class]="activeIndex === 0 ? 'ri-arrow-up-s-line' : 'ri-arrow-down-s-line'"></i>
+                    </button>
+                    <div class="accordion-body" [class.active]="activeIndex === 0">
+                        <p>მგზავრი მატარებელში დაიშვება სამგზავრო დოკუმენტისა და პიროვნების დამადასტურებელი მოწმობის
+                            წარდგენის შემთხვევაში</p>
+                    </div>
+                </div>
+
+                <div data-aos="zoom-in-down"  data-aos-delay="200" class="accordion-item">
+                    <button class="accordion-header" (click)="toggleAccordion(1)">
+                        როგორ დავაბრუნო შეძენილი ბილეთი?
+                        <i [class]="activeIndex === 1 ? 'ri-arrow-up-s-line' : 'ri-arrow-down-s-line'"></i>
+                    </button>
+                    <div class="accordion-body" [class.active]="activeIndex === 1">
+                        <p>შეძენილი ბილეთის დაბრუნება შესაძლებელია მხოლოდ ბილეთის დაბრუნების წესებისა და პირობების
+                            შესაბამისად. დეტალებისთვის გთხოვთ, დაგვიკავშირდეთ ან გაეცნოთ ჩვენს ბილეთების დაბრუნების
+                            პოლიტიკას</p>
+                    </div>
+                </div>
+
+
+
+                <div data-aos="zoom-in-down"  data-aos-delay="400" class="accordion-item">
+                    <button class="accordion-header" (click)="toggleAccordion(2)">
+                        რამდენი ბილეთის ყიდვა შემიძლია ერთი პირადობით?
+                        <i [class]="activeIndex === 2 ? 'ri-arrow-up-s-line' : 'ri-arrow-down-s-line'"></i>
+                    </button>
+                    <div class="accordion-body" [class.active]="activeIndex === 2">
+                        <p>ერთი პირადობით შესაძლებელია შეზღუდული რაოდენობის ბილეთის შეძენა. ზუსტი რაოდენობა
+                            დამოკიდებულია ღონისძიებაზე და ბილეთების გაყიდვის პოლიტიკაზე. გთხოვთ, დეტალები გადაამოწმოთ
+                            კონკრეტული ღონისძიების გვერდზე.</p>
+                    </div>
+                </div>
+
+
+
+                <div data-aos="zoom-in-down"  data-aos-delay="600" class="accordion-item">
+                    <button class="accordion-header" (click)="toggleAccordion(3)">
+                        როგორ შევიძინო ბილეთი ონლაინ?
+                        <i [class]="activeIndex === 2 ? 'ri-arrow-up-s-line' : 'ri-arrow-down-s-line'"></i>
+                    </button>
+                    <div class="accordion-body" [class.active]="activeIndex === 3">
+                        <p>ბილეთის ონლაინ შესაძენად, ეწვიეთ ჩვენს ვებსაიტს, აირჩიეთ სასურველი ღონისძიება, მონიშნეთ
+                            ადგილები და მიჰყევით გადახდის ინსტრუქციებს. წარმატებული გადახდის შემდეგ, ბილეთი
+                            გამოგეგზავნებათ ელ.ფოსტაზე.</p>
+                    </div>
+                </div>
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+        </div>
+    </div>
+</div>

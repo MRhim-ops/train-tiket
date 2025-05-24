@@ -1,0 +1,844 @@
+/* General container styling */
+.people-container {
+  margin: 20px auto;
+  max-width: 1200px;
+  font-family: Arial, sans-serif;
+
+}
+
+/* Train list styling */
+.person-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f9fc;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+
+}
+
+
+.tran{
+  transition: all ease-in-out .50s;
+}
+
+
+.person-div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.person-div p {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+  flex: 1;
+  text-align: center;
+}
+
+.person-div p:first-child {
+  text-align: left;
+}
+
+.person-div p:last-child {
+  text-align: right;
+}
+
+.person-div button {
+  background-color: #0056d2;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.person-div button:hover {
+  background-color: #003d99;
+  transform: scale(1.05);
+}
+
+/* Section headers */
+h1 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.place1 {
+  margin-top: 12px;
+}
+
+.place {
+  margin-top: -12px;
+}
+
+/* Input fields */
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+  border-color: #0056d2;
+  outline: none;
+}
+
+.tickets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.private {
+  min-width: 140px;
+}
+
+.sit {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Buttons */
+button {
+  background-color: #0056d2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #003d99;
+  transform: scale(1.05);
+}
+
+/* Passenger details section */
+.passenger-info {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f8f9fc;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+}
+
+.passenger-info h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.passenger-info .info-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+
+}
+
+.passenger-info .info-row div {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.passenger-info .info-row div:last-child {
+  margin-right: 0;
+}
+
+/* Bag details section */
+.bag-details {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f8f9fc;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 50px;
+
+}
+
+.bag-details .bag-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.bag-details .bag-item i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.bag-details .bag-item p {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Sidebar styling */
+.sidebar {
+  background-color: #f8f9fc;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: 65px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+
+}
+
+.sidebar h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.sidebar p {
+  font-size: 14px;
+  margin: 5px 0;
+  color: #555;
+}
+
+.sidebar button {
+  width: 100%;
+  background-color: #0056d2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 10px;
+}
+
+.sidebar button:hover {
+  background-color: #003d99;
+  transform: scale(1.05);
+}
+
+.bag-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  justify-self: center;
+  flex-direction: column;
+  width: auto;
+}
+
+.bag-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  transition: all 0.3s ease;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.bag-item:hover {
+  background-color: #0058d271;
+  color: white;
+}
+
+.bag-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Container for the train layout */
+.train-container {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  margin: 20px auto;
+  max-width: 600px;
+  position: static;
+  z-index: 4;
+
+
+
+
+}
+
+/* Train image */
+.train-image {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+
+/* Seat layout */
+.seat-layout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+/* Seat column */
+.seat-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Seat row */
+.seat-row {
+  display: flex;
+  gap: 10px;
+}
+
+/* Seat button */
+.seat {
+  background-color: #a8e063;
+  border: 1px solid #6b8e23;
+  border-radius: 5px;
+  font-size: 14px;
+  height: 35px;
+  padding: 20px;
+  width: 100px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* General styles for the table */
+table {
+  border-collapse: collapse;
+  width: 200px;
+  /* Adjust as needed */
+  margin: 20px auto;
+}
+
+/* Styles for table cells */
+td {
+  padding: 5px;
+  text-align: center;
+}
+
+/* Base styles for buttons */
+.btn {
+  display: block;
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  /* Rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  /* Smooth hover effect */
+}
+
+/* Green button style */
+.green {
+  background-color: #9ACD32;
+  /* Light green */
+}
+
+/* Red button style */
+.red {
+  background-color: #FF4500;
+  /* Dark red */
+}
+
+/* Hover effect for buttons */
+.btn:hover {
+  opacity: 0.8;
+  /* Slightly darken on hover */
+}
+
+
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+
+.seat:hover {
+  background-color: #6b8e23;
+  color: white;
+  transform: scale(1.1);
+}
+
+/* Middle section (e.g., toilet) */
+.middle-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Container for the train layout */
+.train-container {
+  text-align: center;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+}
+
+/* Train images container */
+.train-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 20px;
+  width: 5px;
+
+}
+
+/* Train wagon images */
+/* Train wagon images */
+.train-wagon {
+  width: 150px;
+  cursor: pointer;
+  opacity: 0.5;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+  /* Add shadow for a 3D effect */
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  background: transparent;
+
+  /* Clip the shadowbox to match the train's shape */
+  clip-path: polygon(10% 0%, 90% 0%, 100% 20%, 100% 80%, 90% 100%, 10% 100%, 0% 80%, 0% 20%);
+}
+
+
+
+
+
+
+
+
+/* Train container */
+.train-container {
+  text-align: center;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+}
+
+/* Train images container */
+.train-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  /* Space between wagons */
+}
+
+/* Individual wagon container */
+.train-wagon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Train wagon image */
+.train-wagon {
+  width: 150px;
+  cursor: pointer;
+  opacity: 0.9;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+  /* Add shadow for a 3D effect */
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.train-wagon:hover {
+  opacity: 1;
+  transform: scale(1.05);
+  /* Slight zoom on hover */
+}
+
+/* Wagon name styling */
+.wagon-name {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+
+
+
+
+
+
+
+
+/* Hide the vagon name by default */
+.train-wagon-wrapper .wagon-name {
+  display: none;
+  position: absolute;
+  top: 100%;
+  /* Position below the image */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  /* Semi-transparent background */
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+/* Show the vagon name on hover */
+.train-wagon-wrapper:hover .wagon-name {
+  display: block;
+}
+
+/* Ensure the wrapper is positioned correctly */
+.train-wagon-wrapper {
+  position: relative;
+  display: inline-block;
+
+}
+
+
+
+#container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: solid 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 120px;
+  border-radius: 20px;
+  background-color: #ffffff;
+  overflow: hidden;
+  zoom: .8;
+}
+
+
+.btn-lable {
+  display: block;
+  position: relative;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  background: #ddff6c;
+  border-radius: 5px;
+  padding: 5px;
+  color: black;
+  width: 50px;
+  position: absolute;
+}
+
+.bg {
+  background-color: rgba(0, 0, 0, 0.534);
+  border: solid rgba(0, 0, 0, 0.534) 1px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+
+
+
+.hrr {
+  width: 100rem;
+}
+
+
+/* ...existing code... */
+.close-div {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+.close {
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #d32f2f;
+  font-weight: bold;
+  transition: color 0.2s;
+  position: absolute;
+  top: 2%;
+  right: 5%;
+}
+
+.close:hover {
+  color: #b71c1c;
+}
+
+.modal-hr {
+  border: none;
+  border-top: 2px solid #0058d2c2;
+  width: 100%;
+}
+
+/* ...existing code... */
+
+.all-in {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  gap: 20px;
+
+
+}
+
+.vagonImg,
+.train-wagon-wrapper {
+
+  max-width: fit-content;
+  width: 100%;
+}
+
+
+
+.redAlert,
+.redAlert2 {
+  text-align: center;
+  min-width: 240px;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%);
+  top: -200%;
+  transition: .50s;
+  z-index: 999;
+}
+
+
+
+
+
+
+
+
+
+.user-contact-section {
+  background: #f6f8fa;
+  border-radius: 8px;
+  padding: 18px 24px;
+  margin: 24px 0 18px 0;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.user-contact-section h2 {
+  margin-bottom: 14px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.contact-fields {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 800px;
+  width: 100%;
+  gap: 24px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-fields div {
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-fields label {
+  text-align: center;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.contact-fields input {
+  padding: 8px 12px;
+  border: 1px solid #cfd8dc;
+  border-radius: 4px;
+  font-size: 15px;
+}
+
+
+
+@media screen and (max-width: 1120px) {
+  .all-content {
+    padding: 8px;
+
+
+  }
+
+  .all-in {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+    flex-direction: column;
+  }
+
+  .train-wagon {
+
+    zoom: .9;
+  }
+
+  .buy,
+  .delete {
+    width: 100%;
+    margin: auto;
+    max-width: 450px;
+  }
+
+
+
+
+}
+
+@media screen and (max-width: 750px) {
+
+
+
+  #container {
+    padding: 80px 210px;
+    width: 100%;
+    max-width: 400px;
+    zoom: .8;
+  }
+
+  .train-wagon {
+
+    zoom: .8;
+  }
+
+  .person-div {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+
+
+  .info-row {
+    flex-direction: column;
+  }
+
+  .surname,
+  .number,
+  .name {
+    max-width: 280px;
+  }
+
+}
+
+@media screen and (max-width: 450px) {
+  #container {
+    zoom: .7;
+  }
+
+  .bag-details {
+    padding: 20px;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  #container {
+    zoom: .45;
+  }
+}
+
+
+
+
+
+
+
+
+@media screen and (max-height: 880px) {
+  #container {
+    zoom: .7;
+  }
+}
+
+
+@media screen and (max-height: 750px) {
+  #container {
+    zoom: .64;
+  }
+}
+
+
+@media screen and (max-height: 690px) {
+  #container {
+    zoom: .5;
+  }
+}
+
+@media screen and (max-height: 590px) {
+  #container {
+    zoom: .43
+  }
+}

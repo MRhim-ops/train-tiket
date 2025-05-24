@@ -1,0 +1,178 @@
+<div class="return-ticket-container">
+    <label for="ticket-number" class="ticket-label">ბილეთის ნომერი</label>
+    <div class="input-group">
+        <input id="ticket-number" class="ticket-input" type="text" placeholder="შეიყვანეთ ბილეთის ნომერი"
+            [(ngModel)]="ticketNumber" />
+        <button (click)="searchTicket()">
+            <div class="letter-image">
+                <div class="animated-mail">
+                    <div class="back-fold"></div>
+                    <div class="letter">
+                        <div class="letter-border"></div>
+                        <div class="letter-title"></div>
+                        <div class="letter-context"></div>
+                        <div class="letter-stamp">
+                            <div class="letter-stamp-inner"></div>
+                        </div>
+                    </div>
+                    <div class="top-fold"></div>
+                    <div class="body"></div>
+                    <div class="left-fold"></div>
+                </div>
+            </div>
+        </button>
+    </div>
+</div>
+
+<div class="redAlert">
+    <div *ngIf="ticketNotFound" class="alert alert-danger">
+        <strong>შეცდომა!</strong> ბილეთი ვერ მოიძებნა!
+    </div>
+</div>
+
+<div class="greenAlert">
+    <div *ngIf="issuccess" class="alert alert-success">
+        <strong>წარმატებით!</strong> წარმატებით წაიშალა თქვენი მატარებლის ნომერი: "{{foundTicket.id}}"
+    </div>
+</div>
+
+<div *ngIf="foundTicket" class="allinall" data-aos="zoom-out-down">
+
+    <div *ngIf="foundTicket" class="allinall" data-aos="zoom-out-down">
+
+        <ng-container *ngIf="foundTicket.confirmed; else notConfirmed">
+            <div class="confirmed-circle" data-aos="zoom-out">✓</div>
+            <div data-aos="zoom-out" style="text-align:center; color:#4caf50; font-weight:bold; margin-bottom:10px;">
+                დადასტურებულია
+            </div>
+        </ng-container>
+        <ng-template #notConfirmed>
+            <div class="not-confirmed-circle" data-aos="zoom-out">✗</div>
+            <div style="text-align:center; color:#e53935; font-weight:bold; margin-bottom:10px;" data-aos="zoom-out">
+                დადასტურებული არ არის
+            </div>
+        </ng-template>
+
+        <!-- ...rest of your code... -->
+    </div>
+
+    <div class="payment-card">
+        <div class="stepper">
+            <div class="step" data-aos="fade-up" data-aos-anchor-placement="top-bottom">შეკვეთა</div>
+            <div class="step" data-aos="fade-up" data-aos-anchor-placement="top-bottom">მომზადება</div>
+            <div class="step" data-aos="fade-up" data-aos-anchor-placement="top-bottom">გადახდა</div>
+            <div class="step active" data-aos="fade-up" data-aos-anchor-placement="top-bottom">შესრულებულია</div>
+            <div data-aos="fade-up" data-aos-anchor-placement="top-bottom"> <button (click)="generatePDF()"
+                    class="button">
+                    <i class="ri-download-fill"> Download PDF</i>
+                </button></div>
+        </div>
+
+
+
+
+
+        <div class="ticket-receipt">
+            <div class="header-row" data-aos="zoom-out">
+                <div>
+                    <b>matarebeli.ge</b>
+                </div>
+                <div class="logo-img">
+                    <p class="logo-text">m</p>
+                </div>
+            </div>
+            <div class="info-row" data-aos="zoom-out">
+                <div>
+                    ბილეთის ნომერი: <br> <span style="color: black; font-weight: bold;">{{ foundTicket.id }}</span>
+                </div>
+                <div>
+                    შეძენის თარიღი: <br> <span style="color: black; font-weight: bold;">{{ foundTicket.date }}</span>
+                </div>
+            </div>
+            <div class="trip-info" data-aos="zoom-out">
+                <div>გამგზავრება: <b>{{ this.foundTicket.train.from }} {{ this.foundTicket.train.departure }}-ზე</b>
+                </div>
+                <div>ჩასვლა: <b>{{ this.foundTicket.train.to }} {{this.foundTicket.train.arrive }}-ზე</b></div>
+
+            </div>
+            <div class="user-info" data-aos="zoom-out">
+                <div>
+                    <label>იმეილი:</label> <span class="overflow-auto">{{ this.foundTicket.email }}</span>
+                </div>
+                <div>
+                    <label>ტელეფონი ნომერი:</label> <span class="overflow-auto">{{ this.foundTicket.phone
+                        }}</span>
+                </div>
+            </div>
+            <div class="seat-info" data-aos="zoom-out">
+                <!-- Table for desktop -->
+                <div class="desktop-table">
+                    <table class="table" *ngFor="let person of foundTicket.persons; let i = index">
+                        <tr class="table-1">
+                            <th>სახელი:</th>
+                            <th>გვარი:</th>
+                            <th>პირადი ნომერი:</th>
+                            <th>ადგილი:</th>
+                            <th>ვაგონი N:</th>
+                            <th>ფასი:</th>
+                        </tr>
+                        <tr class="table-2">
+                            <td>{{ person.name }}</td>
+                            <td>{{ person.surname }}</td>
+                            <td>{{ person.idNumber }}</td>
+                            <td>{{ person.seat.number }}</td>
+                            <td>{{ person.seat.vagonId }}</td>
+                            <td>{{ person.seat.price }}₾</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- Card layout for mobile -->
+                <div class="mobile-cards">
+                    <div class="ticket-card" *ngFor="let person of foundTicket.persons; let i = index">
+                        <div><b>სახელი:</b> {{ person.name }}</div>
+                        <div><b>გვარი:</b> {{ person.surname }}</div>
+                        <div><b>პირადი ნომერი:</b> {{ person.idNumber }}</div>
+                        <div><b>ადგილი:</b> {{ person.seat.number }}</div>
+                        <div><b>ვაგონი N:</b> {{ person.seat.vagonId }}</div>
+                        <div><b>ფასი:</b> {{ person.seat.price }}₾</div>
+                    </div>
+                </div>
+            </div>
+            <div class="payment-info" data-aos="zoom-out">
+                <div class="adwkoadkw">
+                    <div>
+                        <b>გადახდის ინფორმაცია:</b>
+                    </div>
+                    <div>
+                        ბარათი - ************
+                    </div>
+                </div>
+                <div class="adwkoadk" data-aos="zoom-out">
+                    <div>
+                        <p class="line">————————————————————————————————————</p>
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <b>სულ გადახდილია</b>
+                        <span style="font-size: 20px; font-weight: bold;">{{ totalPrice }}₾</span>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="warning-msg" style="color:#e53935; margin-top:10px;" data-aos="zoom-out">
+                <span>
+                    ბილეთის დაბრუნება შესაძლებელია მხოლოდ იმ შემთხვევაში თუ გამგზავრებამდე დარჩენილია მინიმუმ 1
+                    საათი.<br>
+                    გადახდის დაბრუნება ან ბილეთის შეცვლა შესაძლებელია მხოლოდ სალაროში წარდგენით.
+                </span>
+            </div>
+            <div class="step active mt-4" style="cursor: pointer;" data-aos="zoom-out"><button class="step active"
+                    routerLink="/"><i class="ri-home-2-line"> მთავარ გვერძე დაბრუნება</i></button></div>
+            <hr class="hr" data-aos="zoom-out">
+            <p class="an" data-aos="zoom-out">ან</p>
+            <hr class="hr" data-aos="zoom-out">
+            <div data-aos="zoom-out" class="step disactive mt-4" style="cursor: pointer;"><button class="step disactive"
+                    (click)="DeleteCard(foundTicket.id)"><i class="ri-delete-bin-line"> ბილეთის დაბრუნება</i></button></div>
+        </div>
+    </div>
+</div>

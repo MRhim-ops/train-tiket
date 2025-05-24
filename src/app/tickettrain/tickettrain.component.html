@@ -1,0 +1,107 @@
+<div class="allinall">
+    <div class="payment-card">
+        <div data-aos-duration="600" data-aos="zoom-in-up" class="stepper">
+            <div class="step">შეკვეთა</div>
+            <div class="step">მომზადება</div>
+            <div class="step">გადახდა</div>
+            <div class="step active">შესრულებულია</div>
+            <div><button (click)="generatePDF()" class="button">
+                    <i class="ri-download-fill"> Download PDF</i>
+                </button></div>
+        </div>
+
+        <div class="ticket-receipt">
+            <div class="header-row">
+                <div data-aos="zoom-in-right">
+                    <b >matarebeli.ge</b>
+                </div>
+                <div data-aos-delay="200"  data-aos-duration="600" data-aos="zoom-in-left" class="logo-img">
+                    <p class="logo-text">m</p>
+                </div>
+            </div>
+            <div  data-aos-delay="200"  data-aos-duration="600" data-aos="fade-up" class="info-row">
+                <div>
+                    ბილეთის ნომერი: <br> <span style="color: black; font-weight: bold;">{{ tiketnumberfind }}</span>
+                </div>
+                <div >
+                    შეძენის თარიღი: <br> <span style="color: black; font-weight: bold;">{{ datatikets }}</span>
+                </div>
+            </div>
+            <div  data-aos-delay="400"  data-aos-duration="600" data-aos="zoom-in-left" class="trip-info">
+                <div>გამგზავრება: <b>{{ fromtiket }} {{ fromtiketdata }}-ზე</b></div>
+                <div>ჩასვლა: <b>{{ totiket }} {{ totiketdata }}-ზე</b></div>
+                <div>გამგზავრების თარიღი: <b>{{ GoingDate }}</b></div>
+            </div>
+            <div  data-aos-delay="600"  data-aos-duration="600" data-aos="zoom-in-right" class="user-info">
+                <div>
+                    <label>იმეილი:</label> <span class="overflow-auto">{{ emailtiket }}</span>
+                </div>
+                <div>
+                    <label>ტელეფონი ნომერი:</label> <span class="overflow-auto">{{ phonetiket
+                        }}</span>
+                </div>
+            </div>
+            <div data-aos-delay="600"  data-aos-duration="600" data-aos="zoom-out" class="seat-info">
+                <!-- Table for desktop -->
+                <div class="desktop-table">
+                    <table class="table" *ngFor="let person of peopleList; let i = index">
+                        <tr class="table-1">
+                            <th>სახელი:</th>
+                            <th>გვარი:</th>
+                            <th>პირადი ნომერი:</th>
+                            <th>ადგილი:</th>
+                            <th>ვაგონი N:</th>
+                        </tr>
+                        <tr class="table-2">
+                            <td>{{ person.name }}</td>
+                            <td>{{ person.surname }}</td>
+                            <td>{{ person.idnumber }}</td>
+                            <td>{{ person.sit }}</td>
+                            <td>{{ vagonvagon[i]?.vagonId }}</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- Card layout for mobile -->
+                <div class="mobile-cards">
+                    <div class="ticket-card" *ngFor="let person of peopleList; let i = index">
+                        <div><b>სახელი:</b> {{ person.name }}</div>
+                        <div><b>გვარი:</b> {{ person.surname }}</div>
+                        <div><b>პირადი ნომერი:</b> {{ person.idnumber }}</div>
+                        <div><b>ადგილი:</b> {{ person.sit }}</div>
+                        <div><b>ვაგონი N:</b> {{ vagonvagon[i]?.vagonId }}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="payment-info">
+                <div data-aos-delay="1000" data-aos-duration="800" data-aos="zoom-in-right" class="adwkoadkw">
+                    <div>
+                        <b>გადახდის ინფორმაცია::</b>
+                    </div>
+                    <div>
+                        ბარათი - ************
+                    </div>
+                </div>
+                <div data-aos-delay="1000" data-aos-duration="1000" data-aos-duration="600" data-aos="zoom-in-left" class="adwkoadk">
+                    <div>
+                        <p class="line">————————————————————————————————————</p>
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <b>სულ გადახდილია</b>
+                        <span style="font-size: 20px; font-weight: bold;">{{ totoal }}₾</span>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div data-aos-delay="1000" data-aos-duration="600" data-aos="zoom-in"  class="warning-msg" style="color:#e53935; margin-top:10px;">
+                <span>
+                    ბილეთის დაბრუნება შესაძლებელია მხოლოდ იმ შემთხვევაში თუ გამგზავრებამდე დარჩენილია მინიმუმ 1
+                    საათი.<br>
+                    გადახდის დაბრუნება ან ბილეთის შეცვლა შესაძლებელია მხოლოდ სალაროში წარდგენით.
+                </span>
+            </div>
+            <div data-aos-delay="1200" data-aos-duration="1200"  data-aos-duration="600" data-aos="zoom-in"  class="step active mt-4 " style="cursor: pointer;"><button class="step active" routerLink="/"><i
+                        class="ri-home-2-line"> მთავარ გვერძე დაბრუნება</i></button></div>
+        </div>
+    </div>
+</div>

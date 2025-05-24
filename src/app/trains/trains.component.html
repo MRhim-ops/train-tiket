@@ -1,0 +1,11 @@
+<section class="train-section">
+    <div class="people-container">
+        <h1 data-aos="fade-up">მატარებლების ჩამონათვალი</h1>
+        <div *ngFor="let train of AllTrains; let i = index" class="person-div" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+            <p><i class="ri-train-line"></i> #{{ train.number }}</p>
+            <p>მიმართულება ➡️ {{ train.name }}</p>
+            <p> {{ train.departure }} - {{train.arrive}}</p>
+            <button (click)="selectTrain(train)" routerLink="/cheacktrains">დაჯავშნა</button>
+        </div>
+    </div>
+</section>
